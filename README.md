@@ -3,7 +3,7 @@
 # 🌙 NyxBot
 *Diciptakan dalam kesendirian, digerakkan oleh tekad*
 
-![Versi](https://img.shields.io/badge/versi-1.0.0-blue.svg?style=for-the-badge)
+![Versi](https://img.shields.io/badge/versi-0.0.1-blue.svg?style=for-the-badge)
 ![Status](https://img.shields.io/badge/status-pengembangan%20sendiri-red.svg?style=for-the-badge)
 ![Dibuat Dengan](https://img.shields.io/badge/dibuat%20dengan-malam%20sunyi-purple.svg?style=for-the-badge)
 
