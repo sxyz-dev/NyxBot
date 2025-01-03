@@ -12,7 +12,7 @@ Script ini dibuat dengan semangat dan rasa kesepian. Semoga apa yang saya buat b
 Tanpa kalian, NyxAI tidak akan ada. Kalian adalah bagian dari perjalanan ini. Terima kasih atas dukungannya.
 
 Dukung terus project kami di:  
-https://github.com/sxyz-dev
+https://github.com/sxyz-dev/NyxBot
 
 Forum Update:  
 https://whatsapp.com/channel/0029VaxKuXD6WaKh3VQYgm0C

@@ -9,6 +9,7 @@ const cron = require("node-cron");
 module.exports = async (m, sock, store) => {
         console.log(JSON.stringify(m, null, 2))
         require("../lib/logger.js")(m);
+
         if (m.key.jid === "status@broadcast") {
             await sock.readMessages([m.key]);
             await sock.sendMessage(
@@ -16,47 +17,54 @@ module.exports = async (m, sock, store) => {
                 { react: { text: "📸", key: m.key } },
                 { statusJidList: Object.keys(store.contact) }
             );
-            console.log(chalk.green.bold("– Membaca Status WhatsApp dari : " + m.pushName));
+            console.log(chalk.green.bold("– NyxAI mengamati dunia: " + m.pushName));
             return; 
         }
         await db.main(m);
+
         if (m.isBot) return;     
         if (db.list().settings.self && !m.isOwner) return;
         if (m.isGroup && db.list().group[m.cht]?.mute && !m.isOwner) return
+
         if (Object.keys(store.groupMetadata).length === 0) {
             store.groupMetadata = await sock.groupFetchAllParticipating();
         }
-        const isPrems = db.list().user[m.sender].premium.status
-        const isBanned = db.list().user[m.sender].banned.status
-        const isAdmin = m.isAdmin
-        const botAdmin = m.isBotAdmin
-       cron.schedule('* * * * *', () => {
+
+        const isPrems = db.list().user[m.sender].premium.status;
+        const isBanned = db.list().user[m.sender].banned.status;
+        const isAdmin = m.isAdmin;
+        const botAdmin = m.isBotAdmin;
+
+        cron.schedule('* * * * *', () => {
          let user = Object.keys(db.list().user);
          let time = moment.tz(config.tz).format("HH:mm");
          if (db.list().settings.resetlimit == time) {
          for (let i of user) {
-              db.list().user[i].limit = 100
+              db.list().user[i].poinKesepian = 0;
              }
           }
-        })         
+        });
+
         for (let name in pg.plugins) {
            const plugin = pg.plugins[name];
            if (!plugin) return;
            if (typeof plugin.events === "function") {
-           if (plugin.events.call(sock, m, {
-                sock,
-                Func,
-                config,
-                Uploader,
-                store,
-                isAdmin,
-                botAdmin,
-                isPrems,
-                isBanned
-             })) continue;
+               if (plugin.events.call(sock, m, {
+                    sock,
+                    Func,
+                    config,
+                    Uploader,
+                    store,
+                    isAdmin,
+                    botAdmin,
+                    isPrems,
+                    isBanned
+                })) continue;
            }
+
             const Scraper = await scraper.list();
             const cmd = m.command.toLowerCase() === plugin.command || plugin?.alias?.includes(m.command.toLowerCase());
+
           try {
             if (cmd) {
                 let text = m.text;
@@ -74,6 +82,7 @@ module.exports = async (m, sock, store) => {
                         return m.reply(config.messages.botAdmin);
                     }    
                 }
+                
                 await plugin.run(m, {
                     sock,
                     config,
@@ -88,23 +97,26 @@ module.exports = async (m, sock, store) => {
                     isPrems,
                     isBanned
                 }).then(async(a) => {
-             if (plugin?.settings?.limit && !isPrems && !m.isOwner) {
-                 db.list().user[m.sender].limit -= 1
-                 m.reply(`> Kamu telah menggunakan fitur limit\n> *- Limit anda :* ${db.list().user[m.sender].limit} tersisa ☘️\n> *- Note :* Limit akan direset pada pukul 02:00 WIB`);
-                }             
-             });
-           if (plugin.loading) m.react("🕐");
+                    if (plugin?.settings?.limit && !isPrems && !m.isOwner) {
+                         db.list().user[m.sender].poinKesepian -= 1;
+                         m.reply(`Poin Kesepian Kamu Meningkat Sebanyak 1 Sekarang Kamu Mulai Tidak Kesepian..`);
+                    }             
+                });
+                if (plugin.loading) m.react("🌍");
+            }
+          } catch (error) {
+              if (error.name) {
+                m.reply(Func.jsonFormat(error));
+              } else {
+               m.reply(Func.jsonFormat(error));
+              }
+          } finally {
+             if (db.list().settings.online) {
+                 await sock.readMessages([m.key]);
+             }
+             if (db.list().settings.bio) {
+                 await sock.updateProfileStatus("NyxAI, bot yang terlahir dari kesendirian, dibangun dengan darah, air mata, dan tekad. Aku, ciptaan tanpa teman, hanya memiliki semangat untuk mengabdi pada mereka yang memerlukan.");
+             }
+          }
         }
-    } catch (error) {
-        if (error.name) {
-          m.reply(Func.jsonFormat(error));
-        } else {
-         m.reply(Func.jsonFormat(error));
-        }
-    } finally {
-       if (db.list().settings.online) {
-         await sock.readMessages([m.key]);
-       }
-    }
-  }
 };
