@@ -121,9 +121,6 @@ module.exports = async (m, sock, store) => {
              if (db.list().settings.online) {
                  await sock.readMessages([m.key]);
              }
-             if (db.list().settings.bio) {
-                 await sock.updateProfileStatus("NyxAI, bot yang terlahir dari kesendirian, dibangun dengan darah, air mata, dan tekad. Aku, ciptaan tanpa teman, hanya memiliki semangat untuk mengabdi pada mereka yang memerlukan.");
-             }
           }
         }
 };
