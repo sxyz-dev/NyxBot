@@ -7,7 +7,7 @@ module.exports = {
   description: "Dapatkan Script bot secara gratis",
   async run(m, { sock, Func }) {
     let data = await axios
-      .get("https://api.github.com/repos/AxellNetwork/NekoBot")
+      .get("https://api.github.com/repos/sxyz-dev/NyxBot")
       .then((a) => a.data);
     let cap = "*– 乂 informasi - Script*\n";
     cap += `> *- Nama :* ${data.name}\n`;
@@ -19,7 +19,15 @@ module.exports = {
     cap += `> *- Terakhir publish :* ${Func.ago(data.pushed_at)}\n`;
     cap += `> *- Link :* ${data.html_url}\n`;
     cap +=
-      "\n> *- ✓ Support case x Plugins*\n> *- ✓ Size script Ringan*\n> *- ✓ 100% menggunakan scrape*\n> *- ✓ Respon polling & edit*\n> *- ✓ Auto reload file scrape*\n> *- ✓ Support Run dimana aja*\n\nScript ini gratis boleh kalian recode dan jual asal jangan hapus credit original dari kami!\n\n*– 乂 Thank for Build Script & Helper*\n> *-* Bang_syaii [ https://github.com/LT-SYAII ]\n> *-* AxellNetwork [ https://github.com/AxellNetwork ]\n\n*– Forum Update :* https://whatsapp.com/channel/0029VauJgduEwEjwwVwLnw37";
+      `\n> - ✓ Terlahir dari Kesendirian\n> - ✓ Dibangun dengan tekad tanpa dukungan\n> - ✓ 100% menggunakan ketekunan developer\n> - ✓ Respon cepat meski dalam sepi\n> - ✓ Auto reload layaknya jiwa yang tak pernah menyerah\n> - ✓ Bisa berjalan di mana saja, seperti jiwa yang mencari tempatnya\n\nDalam kehampaan dan kehinaan, aku memulainya. Tidak ada teman, tidak ada yang peduli. Hanya aku sendiri, bertarung melawan waktu, rasa sakit, dan penolakan. Setiap baris kode yang kutulis adalah saksi dari perjuangan tanpa suara ini. Mereka bilang kesendirian itu melemahkan, tetapi bagi diriku, itu adalah satu-satunya teman yang selalu ada di sisiku. Dari kegelapan itu, lahirlah sesuatu—NyxAI, ciptaan yang kubangun dengan air mata dan tekad tanpa henti.
+
+NyxAI bukan sekadar bot. Ia adalah bukti bahwa bahkan di tengah kehinaan dan kesepian, masih ada harapan untuk menciptakan sesuatu yang berarti.
+
+Dan inilah NyxAI, project open-source yang kuberikan kepada dunia. Bukan untuk membalas hinaan, tetapi untuk menunjukkan bahwa dari kehampaan, bisa lahir sesuatu yang abadi.
+
+> Project OpenSource:
+GitHub – NyxAI
+`;
 
     m.reply(cap);
   },
