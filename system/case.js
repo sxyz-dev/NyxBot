@@ -71,26 +71,52 @@ module.exports = async (m, sock, store) => {
           m.reply("> Reply photo atau video yang ingin di jadikan sticker");
       }
       break;
-    case "brat":
-      {
-        let input = m.isQuoted ? m.quoted.body : m.text;
-        if (!input) return m.reply("> Reply/Masukan pessn");
-        m.reply(config.messages.wait);
-        let media = await scrape.brat(input);
-        let sticker = await writeExif(
-          {
-            mimetype: "image",
-            data: media,
-          },
-          {
-            packName: config.sticker.packname,
-            packPublish: config.sticker.author,
-          },
-        );
-
-        await m.reply({ sticker });
-      }
-      break;
+        case 'brat': {
+            try {
+                if (!m.text && !m.quoted?.body) {
+                    return m.reply(`Ketik atau reply pesan yang ingin diubah jadi stiker, contoh: ${m.prefix + m.command} teks`);
+                }
+        
+                let text = m.quoted?.body || m.text;
+                if (!text) {
+                    return m.reply(`Ketik atau reply pesan yang ingin diubah jadi stiker.`);
+                }
+        
+        const axios = require("axios");
+        
+        async function fetchBuffer(url) {
+            const res = await axios.get(url, { responseType: "arraybuffer" });
+            return res.data;
+        }
+        
+                await sock.sendMessage(m.cht, { react: { text: "✈️", key: m.key } });
+        
+                let url = `https://brat.caliphdev.com/api/brat?text=${encodeURIComponent(text)}`;
+        
+                let pack = {
+                    packName: "Made By",
+                    packPublish: "Devolution"
+                };
+        
+                let sticker = await writeExif(
+                    {
+                        mimetype: "image", 
+                        data: await fetchBuffer(url)
+                    }, 
+                    pack
+                );
+        
+                if (sticker) {
+                    await sock.sendMessage(m.cht, { sticker }, { quoted: m });
+                } else {
+                    m.reply("Gagal membuat stiker dari teks yang diberikan.");
+                }
+            } catch (e) {
+                console.warn(e.message);
+                m.reply(`Terjadi kesalahan saat membuat stiker: ${e.message}`);
+            }
+        }
+        break;
     default:
       if (
         [">", "eval", "=>"].some((a) =>

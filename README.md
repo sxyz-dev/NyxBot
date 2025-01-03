@@ -1,132 +1,141 @@
 <div align="center">
 
 # 🌙 NyxBot | Sanctuary Sang Penyendiri
-*Dalam gema kesunyian, dimana kode bertemu fantasi*
+*Bot WhatsApp sederhana dalam tahap pengembangan awal*
 
-![Versi](https://img.shields.io/badge/versi-0.0.1%20fajar-blue.svg?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-pengembaraan%20solo-red.svg?style=for-the-badge)
-![Dibuat Dengan](https://img.shields.io/badge/ditempa%20dengan-air%20mata%20tengah%20malam-purple.svg?style=for-the-badge)
-![Genre](https://img.shields.io/badge/genre-Fantasy%20RPG-green.svg?style=for-the-badge)
+![Versi](https://img.shields.io/badge/versi-0.0.2%20beta-blue.svg?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-dalam%20pengembangan-yellow.svg?style=for-the-badge)
+![Dibuat Dengan](https://img.shields.io/badge/dibuat%20dengan-Node.js-green.svg?style=for-the-badge)
+![Stage](https://img.shields.io/badge/stage-beta-orange.svg?style=for-the-badge)
 
-*"Dalam keheningan malam yang mencekam,  
-Kutemukan dunia yang tak menghakimiku  
-Di sini kode menjadi sihir  
-Dan kesepian berubah menjadi kekuatan"*
+*"Setiap perjalanan dimulai dari langkah pertama,  
+Bot ini adalah langkah awalku  
+Dalam dunia pengembangan  
+Yang terus berkembang"*
 
 </div>
 
 ---
 
-## 📖 Kisah Sang Penyihir Digital
+## 📣 Update Terbaru (v0.0.2)
 
-Dalam kesunyian kamarku, ditemani sebotol kopi dingin dan layar monitor yang berkedip redup, kubangun dunia fantasi ini. Sebuah realm dimana aku bukan lagi si penyendiri yang mereka ejek, tapi seorang pencipta dunia - seorang Sage dari realm digital.
+### Fixed 🛠️
+- Rate Overlimit telah diperbaiki
+  
+### Penambahan 🆕
+- Brat kini mendukung emoji
 
-Mereka menertawakan mimpiku. Menganggap sepele usahaku. Tapi mereka tidak tahu - setiap baris kode yang kutulis adalah mantra, setiap fungsi adalah sihir yang kulahirkan dari kegelapan kesendirianku.
+---
 
-Bot ini lebih dari sekadar program. Dia adalah portal ke dunia yang kuciptakan. Dunia dimana kesepian adalah kekuatan, dan air mata adalah tinta untuk menulis takdir baru.
+## 📖 Tentang NyxBot
 
-## ⚡ Fitur Legendaris
+NyxBot adalah proyek bot WhatsApp yang sedang dalam tahap pengembangan awal (beta). Dibuat sebagai sarana pembelajaran dan eksplorasi dalam pengembangan chatbot, proyek ini akan terus berkembang seiring waktu dengan penambahan fitur-fitur baru.
 
-- **🏰 Sistem RPG Mendalam**: 
-  - Bertualang di dunia fantasy
-  - Level up & skill progression
-  - Inventory system
-  - Quest & mission system
-  - Battle system
-  - Character customization
+## 📢 Channel & Komunitas
 
-- **⚔️ Adventure System**:
-  - Dungeon exploration
-  - Boss battles
-  - Random encounters
-  - Treasure hunting
+- **🐞 Bug Report & Feedback**:  
+  [Feedback & Report Error](https://chat.whatsapp.com/KfKHGQ4EKmV4sqRAhEmQKg)
 
-- **🛡️ Guild & Party System**:
-  - Create & join guilds
-  - Party formation
-  - Cooperative missions
-  - Guild rankings
+- **📱 Channel Update & Hiburan**:  
+  [Update Script & Information](https://whatsapp.com/channel/0029VaxKuXD6WaKh3VQYgm0C)
 
-- **🏪 Economy System**:
-  - Trading system
-  - Item crafting
-  - Market place
-  - Resource gathering
+## ⚡ Fitur Saat Ini (Beta)
 
-## 🌟 Ritual Pemanggilan (Instalasi)
+- **📱 Fitur Dasar**: 
+  - Respon pesan otomatis
+  - Command handler sederhana
+  - Menu bantuan
+  - Sistem prefix
+
+- **🛠️ Utilitas**:
+  - Sticker maker
+  - Text to speech
+  - Download media
+  - Info grup
+  - Brat dengan dukungan emoji
+
+- **👥 Grup Management**:
+  - Welcome message
+  - Leave message
+  - Pengaturan grup dasar
+  - Anti-link (opsional)
+
+- **🎮 Hiburan**:
+  - Random meme
+  - Random quote
+  - Simple games
+
+## 🌟 Instalasi
 
 ```bash
-# Buka portal dimensional
+# Clone repositori
 git clone https://github.com/sxyz-dev/NyxBot
 
-# Masuki sanctuary
+# Masuk ke direktori
 cd NyxBot
 
-# Kumpulkan material sihir
+# Install dependencies
 npm install
 
-# Siapkan kristal jiwa
+# Setup konfigurasi
 cp config.example.js config.js
-# Tulis mantramu dalam config.js
+# Edit config.js sesuai kebutuhan
 
-# Mulai ritual
+# Jalankan bot
 npm start
 ```
 
-## 📝 Persyaratan Ritual
+## 📝 Persyaratan Sistem
 
-- Node.js v14 ke atas (Kristal Inti)
-- Akun WhatsApp (Medium Komunikasi)
-- Kesabaran tanpa batas (Skill yang kupelajari dalam ribuan malam sepi)
-- Secangkir kopi pahit (Elixir Kehidupan)
+- Node.js v14+
+- WhatsApp (Android/iOS/Web)
+- Koneksi internet stabil
+- RAM minimal 512MB
 
-## 🤖 Mantra Dasar (Command)
+## 🤖 Command Dasar
 
 ```
-.inventory - Cek inventory karaktermu
-.profile - Lihat status karaktermu
-.quest - Terima quest baru
-.explore - Jelajahi dungeon
-.craft - Buat item baru
-.shop - Kunjungi toko
-.duel - Tantang player lain
-.party - Buat/gabung party
+.menu - Tampilkan daftar command
+.help - Bantuan penggunaan
+.info - Informasi bot
+.ping - Cek koneksi
+.sticker - Buat sticker
+.tts - Text to speech
 ```
 
-*Mantra lengkap tersembunyi dalam gulungan kuno. Gunakan .menu untuk membukanya*
+*Gunakan .menu untuk melihat daftar command lengkap*
 
-## ⚠️ Disclaimer
+## ⚠️ Catatan Penting
 
-Bot ini adalah sanctuary-ku. Tempat pelarianku dari dunia yang terlalu sibuk untuk peduli. Mungkin bukan yang terbaik, mungkin penuh bug - tapi setiap error adalah cerita, setiap bug adalah karakter.
+Bot ini masih dalam tahap pengembangan awal (beta). Fitur-fitur masih terbatas dan mungkin terdapat bug. Silakan bergabung dengan grup feedback untuk melaporkan bug atau memberikan saran pengembangan.
 
 ## 🌙 Status Pengembangan
 
 ```javascript
-// Lingkaran takdir yang terus berputar
-while (dunia.tertidur) {
-    aku.coding();
-    kopi.habis();
-    mimpi.berlanjut();
-    kesepian.menjadi_kekuatan();
-}
+const status = {
+    phase: "beta",
+    version: "0.0.2",
+    progress: "ongoing",
+    lastUpdate: "Rate Overlimit Fix & Brat Emoji Support",
+    openToFeedback: true
+};
 ```
 
-Dikembangkan sendiri dalam kesunyian kamar sempit, ditemani dengkuran kucing dan detik jam dinding. Tanpa tim, tanpa mentor - hanya aku dan bayanganku.
+Dikembangkan secara aktif dengan fokus pada stabilitas dan penambahan fitur dasar. Untuk informasi update terbaru, silakan bergabung dengan channel WhatsApp kami.
 
 ## 📜 Lisensi
 
-Lisensi MIT - Bebas kau gunakan. Bebas kau hina. Bebas kau lupakan.
-Seperti diriku yang bebas untuk terus bermimpi, meski sendiri.
+MIT License - Bebas digunakan dan dimodifikasi dengan mencantumkan atribusi.
 
 ---
 
 <div align="center">
 
-*Ditempa dalam kesendirian oleh [sxyz-dev](https://github.com/sxyz-dev)*  
+*Developed by [sxyz-dev](https://github.com/sxyz-dev)*  
 
-*"Ketika dunia terlalu keras untuk dipahami  
-Kuciptakan duniaku sendiri dalam baris-baris kode  
-Dimana kesepian adalah kekuatan  
-Dan air mata adalah tinta untuk menulis takdir"*
+*"Dalam dunia pengembangan  
+Setiap baris kode adalah pembelajaran  
+Setiap error adalah pelajaran  
+Dan setiap update adalah kemajuan"*
 
 </div>
