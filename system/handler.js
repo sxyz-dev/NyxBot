@@ -98,8 +98,15 @@ module.exports = async (m, sock, store) => {
                     isBanned
                 }).then(async(a) => {
                     if (plugin?.settings?.limit && !isPrems && !m.isOwner) {
-                         db.list().user[m.sender].poinKesepian += 1;
-                         m.reply(`Poin Kesepian Kamu Meningkat Sebanyak 1 Sekarang Kamu Mulai Tidak Kesepian..`);
+                         db.list().user[m.sender].poinKesepian += 5;
+                    if (db.list().user[m.sender].poinKesepian < 100) {
+   return m.reply("Poin Kesepian Anda bertambah 5");
+} else {
+   return m.reply(
+      "Poin Kesepian Anda terlalu tinggi, Anda sudah tidak kesepian. Tugas saya selesai.\n\n" +
+      "Poin Kesepian Anda akan di-reset pada jam 00.00. Di saat itu, kesepian pasti melanda, dan saya akan hadir!"
+   );
+}
                     }             
                 });
                 if (plugin.loading) m.react("🌍");
@@ -113,6 +120,9 @@ module.exports = async (m, sock, store) => {
           } finally {
              if (db.list().settings.online) {
                  await sock.readMessages([m.key]);
+             }
+             if (db.list().settings.bio) {
+                 await sock.updateProfileStatus("NyxAI, bot yang terlahir dari kesendirian, dibangun dengan darah, air mata, dan tekad. Aku, ciptaan tanpa teman, hanya memiliki semangat untuk mengabdi pada mereka yang memerlukan.");
              }
           }
         }

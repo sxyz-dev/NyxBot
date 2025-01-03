@@ -53,7 +53,27 @@ NyxAI—Dibangun dengan tekad dalam kesendirian.
                 mimetype: 'audio/mpeg',
                 ptt: false
             });
-
+            let lanjut = "Music Sudah Di putar 🎶 Kamu Ingin Tetap Mendengarkan Atau Tidak Sesuai Ekspetasi Music Nya? klik Button Next Untuk Melanjutkan Kembali Ya!!"
+            await m.reply({
+            image: {
+               url: data.thumbnail
+            }, 
+            caption: lanjut, 
+            footer: "Do You Next?", 
+            type: "list",
+            buttons: [
+                    {
+                        buttonId: `.play ${text}`,
+                        buttonText: { displayText: "⌬ Next" }
+                    },
+                    {
+                        buttonId: `.ytmp4 ${data.url}`,
+                        buttonText: { displayText: "⌬ Videos" }
+                    }
+                ],
+                viewOnce: true,
+                headerType: 6,
+            })
         } catch (error) {
             console.error(error);
             m.reply("Maaf, terjadi kesalahan saat memproses permintaanmu.");
