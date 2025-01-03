@@ -7,7 +7,6 @@ const moment = require("moment-timezone");
 const cron = require("node-cron");
 
 module.exports = async (m, sock, store) => {
-        console.log(JSON.stringify(m, null, 2))
         require("../lib/logger.js")(m);
 
         if (m.key.jid === "status@broadcast") {
