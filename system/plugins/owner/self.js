@@ -9,14 +9,22 @@ module.exports = {
   async run(m, { sock, text }) {
     if (!text)
       return m.reply({
-        poll: {
-          name: `*– 乂 Cara Penggunaan*
-> *\`0\`* Untuk mematikan fitur self
-> *\`1\`* Untuk menghidupkan fitur self`,
-          values: [`${m.prefix}self 0`, `${m.prefix}self 1`],
-          selectableCount: 1,
-        },
-      });
+        text: "A-Anu Silahkan Klik Self Atau Public Owner.. S-Saya Persilahkan.",
+        footer: "NyxAi | By NyxDevelopment",
+        buttons: [{
+          buttonId: ".self 1",
+          buttonText: {
+             displayText: "Self"
+          }
+        }, {
+          buttonId: ".self 0",
+          buttonText: {
+             displayText: "Public"
+          }
+        }],
+        viewOnce: true,
+        headerType: 6,
+      })
     let settings = db.list().settings;
     settings.self = parseInt(text) > 0 ? true : false;
     m.reply(`> Berhasil ${text < 1 ? "mematikan" : "menghidupkan"} fitur self`);

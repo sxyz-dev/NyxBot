@@ -118,6 +118,13 @@ module.exports = async (m, sock, store) => {
         }
         break;
     default:
+    if (db.list().user[m.sender].autoaiV1) {
+    if (m.isGroup || m.key.fromMe) return;
+    let api = await fetch(`https://api.zenkey.my.id/api/openai/llama?text=${m.body}&apikey=zenkey`)
+    let json = await api.json()
+    let result = json.result
+    await m.reply(result)
+    }
       if (
         [">", "eval", "=>"].some((a) =>
           m.command.toLowerCase().startsWith(a),
